@@ -30,8 +30,8 @@ def mask_account_card(mask_card: Any) -> str | None:
     return None
 
 
-#print(mask_account_card("Visa Platinum 7000792289606361"))
-#print(mask_account_card("Счет 73654108430135874305"))
+# print(mask_account_card("Visa Platinum 7000792289606361"))
+# print(mask_account_card("Счет 73654108430135874305"))
 
 
 def get_date(input_time: str) -> str:
@@ -40,4 +40,4 @@ def get_date(input_time: str) -> str:
     return date_obj.strftime("%d.%m.%Y")
 
 
-#print(get_date("2024-03-11T02:26:18.671407"))
+# print(get_date("2024-03-11T02:26:18.671407"))
