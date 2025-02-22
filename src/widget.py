@@ -1,9 +1,14 @@
 from datetime import datetime
-from typing import Any
+from typing import Any, Union
 
-import masks
 
-# from src.masks import get_mask_account
+def get_mask_account(account_number: Union[str, int]) -> str | None:
+    """Функция get_mask_account принимает на вход номер счета, проверяет количество символов"""
+    account_number_str = str(account_number)
+    if account_number_str.isdigit() and len(account_number_str) == 20:
+        return f"**{account_number_str[-4:]}"
+    else:
+        return None
 
 
 def mask_account_card(mask_card: Any) -> str | None:
@@ -25,13 +30,14 @@ def mask_account_card(mask_card: Any) -> str | None:
                 alpha_card += i
             elif i.isdigit():
                 digit_card += i
-            mask_card = masks.get_mask_account(digit_card)
+            mask_card = get_mask_account(digit_card)  # Используем локальную функцию
         return f"{alpha_card} {mask_card}"
     return None
 
 
-#print(mask_account_card("Visa Platinum 7000792289606361"))
-#print(mask_account_card("Счет 73654108430135874305"))
+# Примеры использования
+print(mask_account_card("Visa Platinum 7000792289606361"))  # Visa Platinum 7000 79** **** 6361
+print(mask_account_card("Счет 73654108430135874305"))       # Счет **4305
 
 
 def get_date(input_time: str) -> str:
@@ -40,4 +46,4 @@ def get_date(input_time: str) -> str:
     return date_obj.strftime("%d.%m.%Y")
 
 
-#print(get_date("2024-03-11T02:26:18.671407"))
+# print(get_date("2024-03-11T02:26:18.671407"))
