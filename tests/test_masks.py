@@ -49,6 +49,7 @@ def test_get_mask_card_number(card_number: Union[str, int], expected: Optional[s
     assert result == expected, f"Ожидалось: {expected}, получено: {result}"
 
 
+# Тесты с использованием фикстур
 def test_valid_card_number(valid_card_number: str) -> None:
     result = get_mask_card_number(valid_card_number)
     assert result == "7000 79 ** **** 6361"
@@ -124,6 +125,7 @@ def test_get_mask_account(account_number: Union[str, int], expected: Optional[st
     assert result == expected, f"Ожидалось: {expected}, получено: {result}"
 
 
+# Тесты с использованием фикстур
 def test_valid_account_number(valid_account_number: str) -> None:
     result = get_mask_account(valid_account_number)
     assert result == "**4305"

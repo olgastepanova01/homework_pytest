@@ -47,6 +47,7 @@ def test_mask_account_card(input_data: str, expected: Optional[str]) -> None:
     assert result == expected, f"Ожидалось: {expected}, получено: {result}"
 
 
+# Тесты с использованием фикстур
 def test_valid_card_visa(valid_card_visa: str) -> None:
     result = mask_account_card(valid_card_visa)
     assert result == "Visa Platinum 7000 79** **** 6361"
@@ -110,6 +111,7 @@ def test_get_date(input_data: str, expected: Optional[str]) -> None:
             get_date(input_data)
 
 
+# Тесты с использованием фикстур
 def test_valid_date(valid_date: str) -> None:
     result = get_date(valid_date)
     assert result == "11.03.2024"
